@@ -41,11 +41,68 @@
 
 ##### 盛最多水
 
+  * 双端夹击
+  ```javascript
+    for (let i = 0, j = nums.length; i < j; ){
+      let min = nums[i] < nums[j] ? nums[i++] : nums[j--]
+      // calc min area
+    }
+  ```
+
+
 ##### 三数之和
 
+  * 快慢指针（三指针） + 双端夹击
+  ```javascript
+    let result = []
+    for (let i = 0; i < nums.length; i++) {
+      let left = i + 1,
+        right = nums.length - 1
+      if (nums[left] > 0) break
+      if (i > 0 && nums[left] === nums[left + 1]) continue
+      while (left < right) {
+        let sum = nums[i] + nums[i] + nums[j]
+        if (sum < 0) left++
+        if (sum > 0) right--
+        if (sum === 0) {
+          result.push([nums[i], nums[left], nums[right]])
+          while (left < right && nums[left] === nums[left + 1]) left++
+          while (left < right && nums[right] === nums[right - 1]) right--
+          left++
+          right--
+        }
+      }
+    }
+  return result
+  ```
 ##### 有效的括号
-
+  * 最近相关性 --> 栈 Stack 洋葱结构 由内向外 或 由外向内 一层一层
+  
+  ```javascript
+    const dic = { '(': ')', '[': ']', '{': '}' }
+    let stack = []
+    for (let c of s) {
+      if (c in dic) {
+        stack.push(c)  
+      }else if (dic[stack.pop()]  !== c ) {
+        return false
+      }
+    }
+    return !stack.length
+  ```
 ##### 删除排序数组中的重复项
+  
+  * 快慢指针 & 有序
+  
+  ```javascript
+  let i = 0
+  for (let j = 1; j < nums.length; j++) {
+    if (nums[i] !== nums[j] && i < j) {
+      nums[++i] = nums[j]
+    }
+  }
+  return i + 1
+  ```
 
 ##### 爬楼梯
 

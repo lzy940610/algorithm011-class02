@@ -16,15 +16,15 @@ var climbStairs = function(n) {
   // return climbStairs(n - 1) + climbStairs(n - 2)
 
   // 方法二 移动数组 前两位前移 末位求和
-  let p = 0,
-    q = 0,
-    r = 1
-  for (let i = 0; i < n; i++) {
-    p = q
-    q = r
-    r = p + q
-  }
-  return r
+  // let p = 0,
+  //   q = 0,
+  //   r = 1
+  // for (let i = 0; i < n; i++) {
+  //   p = q
+  //   q = r
+  //   r = p + q
+  // }
+  // return r
 
   // 方法三 数学 利用斐波那契额通项公式
   // const sqrt_5 = Math.sqrt(5)
@@ -37,5 +37,6 @@ var climbStairs = function(n) {
   //   dp[i] = dp[i - 1] + dp[i - 2]
   // }
   // return dp[n]
+
 };
 // @lc code=end
