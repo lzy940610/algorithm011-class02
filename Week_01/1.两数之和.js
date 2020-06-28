@@ -12,14 +12,14 @@
  */
 var twoSum = function(nums, target) {
   // 思路一 暴力破解 双循环 不重复
-  // for (let i = 0; i < nums.length; i++) {
-  //   for (let j = i + 1; j < nums.length; j++) {
-  //     if (nums[i] + nums[j] === target) {
-  //       return [i, j]
-  //     }
-  //   }
-  // }
-  // return []
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) {
+        return [i, j]
+      }
+    }
+  }
+  return []
 
 
   // 思路二 借助哈希表查询

@@ -49,13 +49,9 @@ var rotate = function(nums, k) {
   // return result
 
   // 思路三 双端队列 O(k) O(1)
-  // if (!Array.isArray(nums)) throw new TypeError(`${nums} is not array`)
-  // if (!k) return nums
-  // k = k % nums.length
   // for (let i = 0; i < k; i++) {
   //   nums.unshift(nums.pop())
   // }
-  // return nums
 
   // 思路四 环形替换
   let count = 0, // 记录交换位置的次数 n个同学一共需要更换n次
@@ -71,9 +67,7 @@ var rotate = function(nums, k) {
       cur = next
       count++
     } while (start !== cur)
-
   }
-  return nums
 
   // 思路五 多次反转
   // const reverse = (nums, start, end) => {
@@ -89,6 +83,13 @@ var rotate = function(nums, k) {
   // reverse(nums, 0, k - 1)
   // reverse(nums, k, nums.length - 1)
   // return nums
+
+  // 思路六 最快JS
+  // const initLength = nums.length
+  // let temp = nums.slice(initLength - k)
+  // nums.unshift(...temp)
+  // nums.splice(initLength)
+
 
 };
 console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3))
