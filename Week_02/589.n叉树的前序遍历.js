@@ -17,8 +17,35 @@
  * @param {Node} root
  * @return {number[]}
  */
-var preorder = function(root) {
-    
+
+ /**
+  * 1、递归
+  * 2、栈
+  * 
+  */
+var preorder = function (root) {
+  
+  // 递归
+  // let result = []
+  // const recursion = (root) => {
+  //   if(!root) return
+  //   result.push(root.val)
+  //   root.children.forEach(children => {
+  //     recursion(children)
+  //   })
+  // }
+  // recursion(root)
+  // return result
+
+  // 栈
+  if(!root) return []
+  let result = [], stack = [root]
+  while (stack.length) {
+    root = stack.pop()
+    stack.push(...root.children.reverse())
+    result.push(root.val)
+  }
+  return result
 };
 // @lc code=end
 

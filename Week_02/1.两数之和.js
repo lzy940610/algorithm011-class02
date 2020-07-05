@@ -12,7 +12,8 @@
  */
 var twoSum = function(nums, target) {
   // 思路一 暴力破解 双循环 不重复
-  // for (let i = 0; i < nums.length; i++) {
+  // if (Array.isArray(nums) && !nums.length) return
+  // for (let i = 0; i < nums.length - 1; i++) {
   //   for (let j = i + 1; j < nums.length; j++) {
   //     if (nums[i] + nums[j] === target) {
   //       return [i, j]
@@ -23,6 +24,7 @@ var twoSum = function(nums, target) {
 
 
   // 思路二 借助哈希表查询
+  if (Array.isArray(nums) && !nums.length) return
   let map = {}
   nums.forEach((value, index) => map[value] = index)
   for (let i = 0; i < nums.length; i++) {
@@ -32,5 +34,6 @@ var twoSum = function(nums, target) {
     }
   }
   return []
+
 };
 // @lc code=end
